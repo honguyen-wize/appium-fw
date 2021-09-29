@@ -1,4 +1,4 @@
-package e_commerce_sample;
+package samples.android.android_components;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -10,11 +10,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class ECommerceBase {
+public class Base {
+
+
     public static AndroidDriver<AndroidElement> capabilities(String deviceType) throws MalformedURLException {
 
         File appDir = new File("src");
-        File app = new File(appDir, "main/resources/General-Store.apk");
+        File app = new File(appDir, "main/resources/ApiDemos-debug.apk");
 
         DesiredCapabilities cap = new DesiredCapabilities();
 
@@ -33,4 +35,6 @@ public class ECommerceBase {
 
         return driver;
     }
+
+
 }

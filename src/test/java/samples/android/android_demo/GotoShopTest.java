@@ -1,4 +1,4 @@
-package e_commerce_sample;
+package samples.android.android_demo;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -27,6 +27,8 @@ public class GotoShopTest extends ECommerceBase {
 
         // Click on Let's Shopp
         driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+
+        driver.quit();
     }
 
     @Test
@@ -52,6 +54,7 @@ public class GotoShopTest extends ECommerceBase {
         System.out.println(toastMessage);
         Assert.assertEquals("Please enter your name", toastMessage);
 
+        driver.quit();
     }
 
 }

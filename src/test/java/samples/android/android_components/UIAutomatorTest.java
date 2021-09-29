@@ -1,4 +1,4 @@
-package samples;
+package samples.android.android_components;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;

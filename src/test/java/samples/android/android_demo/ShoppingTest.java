@@ -1,7 +1,11 @@
-package e_commerce_sample;
+package samples.android.android_demo;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.TapOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,6 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.List;
 
 public class ShoppingTest extends ECommerceBase {
@@ -86,19 +91,34 @@ public class ShoppingTest extends ECommerceBase {
 
 //        String priceItem1Value = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice")).get(0).getText();
 //        String priceItem2Value = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice")).get(1).getText();
-//        // find sum of products
 //        double amount1Value = getAmount(priceItem1Value); // remove the 1st character of $
 //        double amount2Value = getAmount(priceItem2Value);
 //        double sumOfProducts = amount1Value + amount2Value;
 
         // compare sum of products vs total price
-        System.out.println("sumOfProducts: " + sumOfProducts);
-        System.out.println("totalAmountValue: " + totalAmountValue);
         Assert.assertEquals(sumOfProducts, totalAmountValue);
+
+        // Complete the checkout process
+        WebElement chkSendEmail = driver.findElementByClassName("android.widget.CheckBox");
+        WebElement lblTerm = driver.findElementByXPath("//*[@text='Please read our terms of conditions']");
+        WebElement btnComplete = driver.findElementById("com.androidsample.generalstore:id/btnProceed");
+
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(TapOptions.tapOptions().withElement(ElementOption.element(chkSendEmail))).perform();
+
+        touchAction.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(lblTerm))
+                .withDuration(Duration.ofSeconds(2))).release().perform();
+
+        WebElement btnCloseTermDialog = driver.findElementById("android:id/button1");
+        btnCloseTermDialog.click();
+        Thread.sleep(2000);
+
+        btnComplete.click();
     }
 
-    // Example: "$123.4" => 123.4
+
     private double getAmount(String value){
+        // Example: "$123.4" => 123.4
         return Double.parseDouble(value.substring(1));
     }
 

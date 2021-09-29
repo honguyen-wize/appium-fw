@@ -1,4 +1,4 @@
-package samples;
+package samples.android.android_components;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -24,6 +24,5 @@ public class DemoTest extends Base {
 
         driver.findElementById("android:id/edit").sendKeys("hello");
         driver.findElementsByClassName("android.widget.Button").get(1).click();
-
     }
 }
