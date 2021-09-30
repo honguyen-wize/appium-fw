@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 
 public class GotoShopTest extends ECommerceBase {
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void gotoShopSuccessfullyTest() throws MalformedURLException {
         AndroidDriver<AndroidElement> driver = capabilities("emulator");
 
