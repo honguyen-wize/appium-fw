@@ -1,6 +1,7 @@
 package samples.ios.ios_components;
 
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -18,9 +19,15 @@ public class IOSTest {
         capabilities.setCapability(IOSMobileCapabilityType.LAUNCH_TIMEOUT, 30000);
         capabilities.setCapability("commandTimeouts", "10000");
 
-        capabilities.setCapability(MobileCapabilityType.APP, "/Users/ho.nguyen/Documents/Trainings/Appium/demo-apps/UIKitCatalog.app");
+        capabilities.setCapability(MobileCapabilityType.APP, "/Users/ho.nguyen/Documents/Trainings/Appium/demo-apps/UIKitCatalog_simulator.app");
 
         IOSDriver driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+
+        driver.findElementByAccessibilityId("Sliders").click();
+        IOSElement sliderEl = (IOSElement) driver.findElementByXPath("(//XCUIElementTypeSlider)[1]");
+        sliderEl.setValue("0.7%");
+        sliderEl.setValue("0%");
+        sliderEl.setValue("1%");
 
     }
 }

@@ -18,8 +18,7 @@ public class BaseIOS {
         capabilities.setCapability(IOSMobileCapabilityType.LAUNCH_TIMEOUT, 30000);
         capabilities.setCapability("commandTimeouts", "10000");
 
-        capabilities.setCapability(MobileCapabilityType.APP, "/Users/ho.nguyen/Documents/Trainings/Appium/demo-apps/UIKitCatalog.app");
-//        capabilities.setCapability(MobileCapabilityType.APP, "/Users/ho.nguyen/Documents/Trainings/Appium/demo-apps/longtap.app");
+        capabilities.setCapability(MobileCapabilityType.APP, "/Users/ho.nguyen/Documents/Trainings/Appium/demo-apps/UIKitCatalog_simulator.app");
 
         IOSDriver driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 
