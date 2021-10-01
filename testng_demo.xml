@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="ecommerce_test.common.ExtentReporterNG"></listener>
+        <listener class-name="ecommerce_test.common.Listener"></listener>
+    </listeners>
+    <test name="Cucumber Test">
+        <classes>
+            <class name="ecommerce_test.tests.ShoppingTest"></class>
+            <class name="ecommerce_test.tests.CheckoutTest"></class>
+        </classes>
+    </test>
+</suite>

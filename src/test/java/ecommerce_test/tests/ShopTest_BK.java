@@ -1,4 +1,4 @@
-package ecommerce_test;
+package ecommerce_test.tests;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -13,6 +13,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.List;
@@ -21,7 +22,7 @@ public class ShopTest_BK extends BaseTest {
     AndroidDriver<AndroidElement> driver;
 
     @BeforeMethod
-    public void gotoShoppingPage() throws MalformedURLException {
+    public void gotoShoppingPage() throws IOException, InterruptedException {
         driver = capabilities();
 
         // Input your name

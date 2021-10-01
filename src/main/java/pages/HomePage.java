@@ -11,10 +11,10 @@ public class HomePage extends BasePage {
     }
 
     @AndroidFindBy(xpath = "//*[@text='ADD TO CART']")
-    WebElement btnAddToCart;
+    private WebElement btnAddToCart;
 
     @AndroidFindBy(id = "com.androidsample.generalstore:id/appbar_btn_cart")
-    WebElement btnShoppingCart;
+    private WebElement btnShoppingCart;
 
 
     public CheckoutPage doShopping(){
@@ -22,6 +22,10 @@ public class HomePage extends BasePage {
         btnAddToCart.click();
         btnShoppingCart.click();
         return new CheckoutPage(driver);
+    }
+
+    public boolean isShoppingCartDisplayed(){
+        return btnShoppingCart.isDisplayed();
     }
 
 

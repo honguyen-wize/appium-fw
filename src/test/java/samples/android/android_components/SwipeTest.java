@@ -6,13 +6,16 @@ import io.appium.java_client.android.AndroidElement;
 import static io.appium.java_client.touch.LongPressOptions.*;
 import static io.appium.java_client.touch.offset.ElementOption.*;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.time.Duration;
 
 public class SwipeTest  extends Base {
 
-    public static void main(String [] args) throws MalformedURLException {
+    @Test
+    public void testSwipe() throws MalformedURLException {
+        System.out.println("================ Test case: testSwipe");
         AndroidDriver<AndroidElement> driver = capabilities("emulator");
 
         // go to date widget
