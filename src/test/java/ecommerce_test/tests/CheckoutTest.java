@@ -17,15 +17,19 @@ public class CheckoutTest extends BaseTest{
 
     @BeforeMethod
     public void setup() throws IOException, InterruptedException {
-        startServer();
-        driver = capabilities();
+        if(!isRunningOnCloud()){
+            startServer();
+        }
+        driver = getDriver();
         formPage = new FormPage(driver);
     }
 
     @AfterMethod
     public void teardown(){
         driver.quit();
-        stopServer();
+        if(!isRunningOnCloud()){
+            stopServer();
+        }
     }
 
     @Test(enabled = true)
