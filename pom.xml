@@ -35,9 +35,9 @@
             <resource>
                 <directory>src/test/java/ecommerce_test/listeners</directory>
             </resource>
-<!--            <resource>-->
-<!--                <directory>src/main/resources</directory>-->
-<!--            </resource>-->
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
         </resources>
     </build>
     <dependencies>
