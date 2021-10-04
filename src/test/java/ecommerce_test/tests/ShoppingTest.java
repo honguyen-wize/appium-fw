@@ -41,10 +41,10 @@ public class ShoppingTest extends BaseTest {
         Assert.assertTrue(homePage.isShoppingCartDisplayed());
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void checkToastMessage() throws IOException {
         formPage.goShopping();
-        Assert.assertEquals(formPage.getToastMessage(), "Please enter your name!!!");
+        Assert.assertEquals(formPage.getToastMessage(), "Please enter your name");
     }
 
 

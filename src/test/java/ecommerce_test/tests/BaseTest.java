@@ -38,10 +38,7 @@ public class BaseTest {
         System.out.println("========initEmulator:" + deviceName);
 
         UtilsTest.killAllProcess();
-
-        if(deviceName.contains("Emulator") || deviceName.contains("emulator")){
-            UtilsTest.startEmulator(deviceName);
-        }
+        UtilsTest.startEmulator(deviceName);
     }
 
     public AndroidDriver<AndroidElement> capabilities() throws IOException, InterruptedException {
