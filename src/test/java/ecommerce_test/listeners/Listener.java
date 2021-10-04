@@ -1,4 +1,4 @@
-package ecommerce_test.common;
+package ecommerce_test.listeners;
 
 import ecommerce_test.tests.BaseTest;
 import org.openqa.selenium.WebDriver;

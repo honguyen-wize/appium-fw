@@ -1,5 +1,6 @@
 package ecommerce_test.tests;
 
+import ecommerce_test.testdata.FormDataProvider;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.testng.Assert;
@@ -28,13 +29,19 @@ public class ShoppingTest extends BaseTest {
         stopServer();
     }
 
+    @Test (enabled = false, dataProvider = "InputFormData", dataProviderClass = FormDataProvider.class)
+    public void checkFillFormWithDataProvider(String inputName, String inputCountry){
+        homePage = formPage.fillForm(inputName, inputCountry);
+        Assert.assertTrue(homePage.isShoppingCartDisplayed());
+    }
+
     @Test (enabled = true)
     public void checkFillFormSuccessfully() throws MalformedURLException {
         homePage = formPage.fillForm("Ho Nguyen", "Argentina");
         Assert.assertTrue(homePage.isShoppingCartDisplayed());
     }
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void checkToastMessage() throws IOException {
         formPage.goShopping();
         Assert.assertEquals(formPage.getToastMessage(), "Please enter your name!!!");

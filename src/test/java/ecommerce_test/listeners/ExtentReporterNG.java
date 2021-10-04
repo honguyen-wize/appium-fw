@@ -1,4 +1,4 @@
-package ecommerce_test.common;
+package ecommerce_test.listeners;
 
 import java.io.File;
 import java.util.Calendar;
@@ -19,7 +19,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class ExtentReporterNG implements IReporter {
-    private ExtentReports extent;
+    protected ExtentReports extent;
 
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
         extent = new ExtentReports(outputDirectory + File.separator

@@ -34,20 +34,21 @@ public class BaseTest {
 
     @BeforeTest
     public void initEmulator() throws IOException, InterruptedException {
-        String deviceName = resourceBundle.getString("device");
+        String deviceName = this.getDeviceName();
+        System.out.println("========initEmulator:" + deviceName);
 
         UtilsTest.killAllProcess();
 
         if(deviceName.contains("Emulator") || deviceName.contains("emulator")){
-            UtilsTest.startEmulator();
+            UtilsTest.startEmulator(deviceName);
         }
     }
 
     public AndroidDriver<AndroidElement> capabilities() throws IOException, InterruptedException {
+        String deviceName = this.getDeviceName();
+        System.out.println("========capabilities():" + deviceName);
 
         String appName = resourceBundle.getString("app_name");
-        String deviceName = resourceBundle.getString("device");
-
         File appDir = new File("src/main/resources/");
         File app = new File(appDir, appName);
 
@@ -60,6 +61,17 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         return driver;
+    }
+
+    private String getDeviceName(){
+        String deviceName = "";
+        if(System.getProperty("deviceName") != null){
+            deviceName = System.getProperty("deviceName");
+        } else {
+            deviceName = resourceBundle.getString("deviceName");
+        }
+        return deviceName;
+
     }
 
     public void startServer() throws IOException {
