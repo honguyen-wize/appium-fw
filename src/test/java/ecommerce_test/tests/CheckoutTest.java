@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 
 public class CheckoutTest extends BaseTest{
 
-    public AndroidDriver<AndroidElement> driver;
+    public AndroidDriver driver;
 
     @BeforeMethod
     public void setup() throws IOException, InterruptedException {

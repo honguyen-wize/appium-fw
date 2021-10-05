@@ -1,8 +1,8 @@
 package pages;
 
 import common.BasePage;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
@@ -14,7 +14,7 @@ public class CheckoutPage extends BasePage {
     }
 
     @AndroidFindBy(id = "com.androidsample.generalstore:id/productPrice")
-    List<AndroidElement> productPriceItems;
+    List<MobileElement> productPriceItems;
 
     @AndroidFindBy(id = "com.androidsample.generalstore:id/totalAmountLbl")
     private WebElement lblTotalPrice;

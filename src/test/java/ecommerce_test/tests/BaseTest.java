@@ -2,7 +2,6 @@ package ecommerce_test.tests;
 
 import ecommerce_test.common.UtilsTest;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
@@ -29,7 +28,7 @@ public class BaseTest {
     protected ResourceBundle resourceBundle = ResourceBundle.getBundle("env_dev");
     private static AppiumDriverLocalService service;
 
-    protected AndroidDriver<AndroidElement> driver;
+    protected AndroidDriver driver;
     protected FormPage formPage;
     protected HomePage homePage;
     protected CheckoutPage checkoutPage;
@@ -44,7 +43,7 @@ public class BaseTest {
 
     }
 
-    public AndroidDriver<AndroidElement> capabilities() throws IOException, InterruptedException {
+    public AndroidDriver capabilities() throws IOException, InterruptedException {
         String deviceName = this.getDeviceName();
         String appName = resourceBundle.getString("app_name");
         File appDir = new File("src/main/resources/");
@@ -54,14 +53,14 @@ public class BaseTest {
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
         cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+        AndroidDriver driver = new AndroidDriver (new URL("http://127.0.0.1:4723/wd/hub"), cap);
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         return driver;
     }
 
-    public AndroidDriver<AndroidElement> capabilitiesCloud() throws MalformedURLException {
+    public AndroidDriver capabilitiesCloud() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("browserstack.user", "honguyen3");
         cap.setCapability("browserstack.key", "1aMwo6RkK7zHmbx6M1JE");
@@ -69,14 +68,14 @@ public class BaseTest {
         cap.setCapability("os_version", "11.0");
         cap.setCapability("app", "bs://76372c9ae91de6736f125fbf87b774eaf5607435");
         cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://hub.browserstack.com/wd/hub"), cap);
+        AndroidDriver driver = new AndroidDriver(new URL("http://hub.browserstack.com/wd/hub"), cap);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         return driver;
     }
 
 
-    protected AndroidDriver<AndroidElement> getDriver() throws IOException, InterruptedException {
+    protected AndroidDriver getDriver() throws IOException, InterruptedException {
         if(isRunningOnCloud()) { // if run on cloud, then get cloud driver
             return capabilitiesCloud();
         } else {
