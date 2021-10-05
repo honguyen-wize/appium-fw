@@ -24,7 +24,8 @@
                     <version>3.0.0-M5</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>testng_demo.xml</suiteXmlFile>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
+<!--                            <suiteXmlFile>testng_cloud_parallel.xml</suiteXmlFile>-->
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>

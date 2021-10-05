@@ -50,6 +50,4 @@ public class ShoppingTest extends BaseTest {
         formPage.goShopping();
         Assert.assertEquals(formPage.getToastMessage(), "Please enter your name");
     }
-
-
 }

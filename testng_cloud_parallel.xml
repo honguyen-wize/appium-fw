@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" parallel="true" thread-count="3">
     <listeners>
         <listener class-name="ecommerce_test.listeners.ExtentReporterNG"></listener>
         <listener class-name="ecommerce_test.listeners.Listener"></listener>
     </listeners>
-    <test name="Cucumber Test">
+    <test name="Shopping Test">
         <classes>
             <class name="ecommerce_test.tests.ShoppingTest"></class>
+        </classes>
+    </test>
+    <test name="Checkout Test">
+        <classes>
             <class name="ecommerce_test.tests.CheckoutTest"></class>
         </classes>
     </test>
